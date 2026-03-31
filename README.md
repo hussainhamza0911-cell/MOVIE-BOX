@@ -1450,7 +1450,20 @@
     .parent {
       flex-direction: row; /* Side-by-side for PC */
     }
-  }
-</style>
+  }<?php
+session_start();
+
+// Only the creator with the right password can see this
+if ($_SESSION['user_role'] !== 'admin') {
+    die("Access Denied: You do not have owner permissions.");
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Welcome, Creator.</h1>
+    <p>This content is under your total control.</p>
 </body>
 </html>
+</style>
