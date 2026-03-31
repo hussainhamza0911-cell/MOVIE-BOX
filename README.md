@@ -1295,7 +1295,152 @@
             } else {
                 alert("Please select a file first.");
             }
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Register</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #f4f4f4; }
+        .auth-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; }
+        .toggle-link { font-size: 0.8em; color: blue; cursor: pointer; text-align: center; display: block; margin-top: 10px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="auth-container">
+    <div id="login-form">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <span class="toggle-link" onclick="toggleForms()">Need an account? Create one</span>
+    </div>
+
+    <div id="register-form" class="hidden">
+        <h2>Create Account</h2>
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <span class="toggle-link" onclick="toggleForms()">Already have an account? Login</span>
+    </div>
+
+    <div id="signout-section" class="hidden">
+        <p>Welcome back!</p>
+        <form action="/logout" method="POST">
+            <button type="submit" style="background: #dc3545;">Sign Out</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleForms() {
+        document.getElementById('login-form').classList.toggle('hidden');
+        document.getElementById('register-form').classList.toggle('hidden');
+    }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Corner Login</title>
+    <style>
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        /* Navigation Bar Container */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between; /* Pushes content to opposite ends */
+            align-items: center;
         }
+
+        .logo { font-size: 1.5rem; font-weight: bold; }
+
+        /* The Right Side Controls */
+        .auth-controls {
+            display: flex;
+            gap: 15px; /* Space between buttons */
+            align-items: center;
+        }
+
+        /* Buttons Styling */
+        .btn {
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .login-btn {
+            color: white;
+            border: 1px solid white;
+        }
+
+        .login-btn:hover {
+            background: white;
+            color: #333;
+        }
+
+        .signup-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .signup-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .signout-btn {
+            color: #ff4d4d;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Helper to hide things (for your JavaScript logic later) */
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">MyWebsite</div>
+
+    <div class="auth-controls">
+        <div id="logged-out-view">
+            <a href="/login" class="btn login-btn">Login</a>
+            <a href="/register" class="btn signup-btn">Create Account</a>
+        </div>
+
+        <div id="logged-in-view" class="hidden">
+            <span>Welcome, <strong>User</strong></span>
+            <a href="/logout" class="btn signout-btn">Sign Out</a>
+        </div>
+    </div>
+</nav>
+
+<div style="padding: 50px; text-align: center;">
+    <h1>Main Website Content</h1>
+    <p>The login options are now pinned to the top right corner.</p>
+</div>
+
+</body>
+</html>
+</script>
+
+</body>
+</html>
     </script>
 </body>
 </html>
