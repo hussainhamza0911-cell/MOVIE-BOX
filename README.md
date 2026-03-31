@@ -1434,16 +1434,23 @@
     <h1>Main Website Content</h1>
     <p>The login options are now pinned to the top right corner.</p>
 </div>
+<div class="parent">
+  <div class="box">Item 1</div>
+  <div class="box">Item 2</div>
+</div>
 
-</body>
-</html>
-</script>
+<style>
+  .parent {
+    display: flex;
+    flex-direction: column; /* Stacked for mobile */
+    gap: 10px;
+  }
 
-</body>
-</html>
-    </script>
-</body>
-</html>
-    </script>
+  @media (min-width: 1024px) {
+    .parent {
+      flex-direction: row; /* Side-by-side for PC */
+    }
+  }
+</style>
 </body>
 </html>
