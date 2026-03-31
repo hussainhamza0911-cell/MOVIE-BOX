@@ -1464,6 +1464,38 @@ if ($_SESSION['user_role'] !== 'admin') {
 <body>
     <h1>Welcome, Creator.</h1>
     <p>This content is under your total control.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creator Control: Hollywood DB</title>
+    <style>
+        body { background: #141414; color: white; font-family: Arial, sans-serif; }
+        .search-box { text-align: center; padding: 20px; }
+        input { padding: 10px; width: 300px; border-radius: 5px; border: none; }
+        #movie-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 20px; padding: 20px; 
+        }
+        .movie-card { background: #222; border-radius: 10px; overflow: hidden; text-align: center; transition: 0.3s; }
+        .movie-card:hover { transform: scale(1.05); }
+        .movie-card img { width: 100%; height: 300px; object-fit: cover; }
+        .movie-card h3 { font-size: 1rem; padding: 10px; margin: 0; }
+        .info-btn { display: inline-block; margin-bottom: 10px; color: #e50914; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="search-box">
+        <h1>HOLLYWOOD DATABASE</h1>
+        <input type="text" id="searchInput" placeholder="Search 10,000+ movies..." onkeyup="searchMovies()">
+    </div>
+
+    <div id="movie-grid">
+        </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 </style>
