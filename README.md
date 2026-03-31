@@ -1495,7 +1495,32 @@ if ($_SESSION['user_role'] !== 'admin') {
     <div id="movie-grid">
         </div>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script>.rating-container {
+    padding: 10px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    color: #555; /* Default Gray */
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.star-btn.active {
+    color: #ffcc00; /* Gold when clicked */
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.star-btn:hover {
+    transform: scale(1.2);
+    color: #ffcc00;
+}
 </body>
 </html>
 </style>
