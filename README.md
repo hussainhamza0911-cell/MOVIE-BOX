@@ -1200,7 +1200,105 @@
 
         // --- Initialize App ---
         renderMovies();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Control Panel</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        body { font-family: sans-serif; margin: 0; display: flex; background: var(--light); }
+        
+        /* Sidebar */
+        nav { width: 250px; height: 100vh; background: var(--dark); color: white; padding: 20px; }
+        nav h2 { font-size: 1.2rem; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { padding: 12px 0; cursor: pointer; border-bottom: 1px solid #334155; }
+        nav li:hover { color: var(--primary); }
 
+        /* Main Content */
+        main { flex: 1; padding: 40px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input[type="text"], input[type="file"], select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { opacity: 0.9; }
+        
+        .status-msg { color: #059669; font-weight: bold; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>Creator Studio</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Site Settings</li>
+            <li>File Manager</li>
+            <li>SEO & Analytics</li>
+            <li>Logout</li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Website Controls</h1>
+
+        <div class="card">
+            <h3>General Site Settings</h3>
+            <div class="form-group">
+                <label>Website Name</label>
+                <input type="text" placeholder="e.g. My Awesome Portfolio">
+            </div>
+            <div class="form-group">
+                <label>Site Theme</label>
+                <select>
+                    <option>Light Mode</option>
+                    <option>Dark Mode</option>
+                    <option>High Contrast</option>
+                </select>
+            </div>
+            <button onclick="saveSettings()">Save Changes</button>
+            <p id="save-msg" class="status-msg">Settings updated successfully!</p>
+        </div>
+
+        <div class="card">
+            <h3>Media Upload</h3>
+            <p>Upload images, videos, or assets to your server.</p>
+            <div class="form-group">
+                <input type="file" id="fileInput" multiple>
+            </div>
+            <button onclick="uploadFiles()">Start Upload</button>
+            <p id="upload-msg" class="status-msg">Files uploaded to server!</p>
+        </div>
+    </main>
+
+    <script>
+        // Simple UI interactions
+        function saveSettings() {
+            document.getElementById('save-msg').style.display = 'block';
+            setTimeout(() => { document.getElementById('save-msg').style.display = 'none'; }, 3000);
+        }
+
+        function uploadFiles() {
+            const files = document.getElementById('fileInput').files;
+            if(files.length > 0) {
+                document.getElementById('upload-msg').style.display = 'block';
+                setTimeout(() => { document.getElementById('upload-msg').style.display = 'none'; }, 3000);
+            } else {
+                alert("Please select a file first.");
+            }
+        }
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
