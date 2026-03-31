@@ -1,4 +1,4 @@
-# MOVIE-BOX<!DOCTYPE html>
+# MOVIE-BOX
 <html lang="en">
 <head>
     <meta charset="UTF-8">
